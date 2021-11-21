@@ -8,7 +8,7 @@ namespace Calculator_App {
         static void Main(string[] args) {
             while (true) {
 
-                string menuChosen = "";
+                string menuChosen;
 
                 Console.WriteLine("\n\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓");
                 Console.WriteLine("\t\t\t ▒▒▒                                             ▒▒▒");
@@ -17,16 +17,20 @@ namespace Calculator_App {
                 Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓");
                 Console.WriteLine("\t\t\t\t    \n");
                 Thread.Sleep(1500);
-                Console.WriteLine("\tWhat menu would you like to access: utilities | credits | exit\n");
+                Console.WriteLine("\t What menu would you like to access: fun | utilities | credits | exit\n");
                 menuChosen = Console.ReadLine();
                 Console.WriteLine("\n");
 
-                if (menuChosen.ToLower() == "utilities") {
-                    Thread.Sleep(1000);
+                if (menuChosen.ToLower() == "fun") {
+                    Thread.Sleep(500);
+                    Console.Clear();
+                    FunMenu();
+                } else if (menuChosen.ToLower() == "utilities") {
+                    Thread.Sleep(500);
                     Console.Clear();
                     UtilityMenu();
                 } else if (menuChosen.ToLower() == "credits") {
-                    Thread.Sleep(1000);
+                    Thread.Sleep(500);
                     Console.Clear();
                     Credits();
                 } else if (menuChosen.ToLower() == "exit") {
@@ -35,12 +39,160 @@ namespace Calculator_App {
                     Thread.Sleep(500);
                     Environment.Exit(0);
                 } else {
-                    Console.WriteLine("\tPlease choose a program from the following...\n\n");
+                    Console.WriteLine("\t Please choose a program from the following...\n\n");
                     Thread.Sleep(500);
                     Console.Clear();
                 }
             }
         }
+        static public void FunMenu() {
+
+            string funChosen;
+            string input;
+            int numOfRounds;
+            int guess;
+            Random number = new Random();
+            double correctNumber;
+            string chosenDifficulty;
+            int difficulty;
+            int score = 0;
+
+            void NumberGuess() {
+
+                Console.WriteLine("\n\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▒▓▓▓▒▒▒▓▓▓");
+                Console.WriteLine("\t\t\t ▒▒▒                ▓▓▓");
+                Console.WriteLine("\t\t\t ▓▓▓  Number Guess  ▒▒▒");
+                Console.WriteLine("\t\t\t ▒▒▒                ▓▓▓");
+                Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▒▓▓▓▒▒▒▓▓▓");
+                Console.WriteLine("\t\t\t\t    \n");
+                Thread.Sleep(500);
+                while (true) {
+                    Console.WriteLine("\n\t How many rounds would you like to play:\n");
+                    input = Console.ReadLine();
+                    if (int.TryParse(input, out numOfRounds)) {
+                        if (numOfRounds > 0 && numOfRounds < 11) {
+                            break;
+                        } else {
+                            Console.WriteLine("\t Maximum number of rounds is 10...\n");
+                        }
+                    } else {
+                        Console.WriteLine("\t Please enter a number over 0...\n");
+                        Thread.Sleep(500);
+                    }
+                }
+
+                Thread.Sleep(200);
+                Console.WriteLine("\t Choose a difficulty: easy | normal | hard\n");
+                while (true) {
+                    chosenDifficulty = Console.ReadLine();
+                    if (chosenDifficulty == "easy") {
+                        difficulty = 4;
+                        break;
+                    } else if (chosenDifficulty == "normal") {
+                        difficulty = 2;
+                        break;
+                    } else if (chosenDifficulty == "hard") {
+                        difficulty = 0;
+                        break;
+                    } else {
+                        Console.WriteLine("\t Please choose a valid difficulty...\n");
+                    }
+                }
+
+                Thread.Sleep(500);
+                Console.WriteLine("\n");
+                for (int i = 1; i <= numOfRounds; i++) {
+                    Console.Clear();
+                    Console.WriteLine("\n\t\t\t ▓▓▓▒▒▒▒▓▓▓▒▒▒▒▓▓▓");
+                    Console.WriteLine("\t\t\t ▒▒▒           ▒▒▒");
+                    Console.WriteLine("\t\t\t ▓▓▓  Round " + i + "  ▓▓▓");
+                    Console.WriteLine("\t\t\t ▒▒▒           ▒▒▒");
+                    Console.WriteLine("\t\t\t ▓▓▓▒▒▒▒▓▓▓▒▒▒▒▓▓▓");
+                    Console.WriteLine("\t\t\t\t    \n");
+                    Thread.Sleep(500);
+
+                    correctNumber = number.Next(1, 10);
+                    Console.WriteLine("\t Guess a number between 1 - 10:\n");
+                    
+                    for (int trys = difficulty; trys >= 0; trys--) {
+                        while (true) {
+                            input = Console.ReadLine();
+                            Console.WriteLine("");
+                            if (int.TryParse(input, out guess)) {
+                                Thread.Sleep(200);
+                                break;
+                            } else {
+                                Thread.Sleep(200);
+                                Console.WriteLine("\t Please enter a number...\n");
+                                Thread.Sleep(500);
+                            }
+                        }
+
+                        if (guess == correctNumber) {
+                            Thread.Sleep(200);
+                            Console.WriteLine("\t Well done, answer was " + correctNumber + "\n");
+                            score++;
+                            Thread.Sleep(200);
+                            break;
+                        } else {
+                            Thread.Sleep(200);
+                            Console.WriteLine("\t Wrong! Try again...\n");
+                            Thread.Sleep(500);
+                            Console.WriteLine("\t You have " + trys + " trys left... \n");
+                            Thread.Sleep(200);
+                        }
+                    }
+                    Console.WriteLine("\n\t Press Enter to go to next round...");
+                    Console.ReadLine();
+                }
+
+                Thread.Sleep(200);
+                if (score > 0) {
+                    Console.WriteLine("\t You got " + score + " guesses correct!\n");
+                    Console.WriteLine("\t Press Enter to go back to the menu...\n");
+                    Console.ReadLine();
+                } else {
+                    Console.WriteLine("\t You got " + score + " guesses correct, better luck next time...\n");
+                    Console.WriteLine("\t Press Enter to go back to the menu...\n");
+                    Console.ReadLine();
+                }
+                
+            }
+
+            while (true) {
+
+                Console.Clear();
+                Console.WriteLine("\n\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒");
+                Console.WriteLine("\t\t\t ▒▒▒            ▓▓▓");
+                Console.WriteLine("\t\t\t ▓▓▓  Fun Menu  ▒▒▒");
+                Console.WriteLine("\t\t\t ▒▒▒            ▓▓▓");
+                Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒");
+                Console.WriteLine("\t\t\t\t    \n");
+                Thread.Sleep(500);
+                Console.WriteLine("\t What program would you like to run: number guess | exit\n");
+                funChosen = Console.ReadLine();
+                Console.WriteLine("\n");
+
+                if (funChosen.ToLower() == "number guess") {
+                    Thread.Sleep(500);
+                    Console.Clear();
+                    NumberGuess();
+                } else if (funChosen.ToLower() == "NEEDS ASSIGNING") {
+                    Thread.Sleep(500);
+                    Console.Clear();
+                    Converter();
+                } else if (funChosen.ToLower() == "exit") {
+                    Thread.Sleep(200);
+                    Console.Clear();
+                    break;
+                } else {
+                    Console.WriteLine("\t Please choose a game from the following...\n\n");
+                    Thread.Sleep(500);
+                    Console.Clear();
+                }
+            }
+        }
+
         static public void UtilityMenu() {
             while (true) {
 
@@ -53,7 +205,7 @@ namespace Calculator_App {
                 Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒");
                 Console.WriteLine("\t\t\t\t    \n");
                 Thread.Sleep(1500);
-                Console.WriteLine("\tWhat program would you like to run: calculator | converter | exit\n");
+                Console.WriteLine("\t What program would you like to run: calculator | converter | exit\n");
                 utilityChosen = Console.ReadLine();
                 Console.WriteLine("\n");
 
@@ -70,7 +222,7 @@ namespace Calculator_App {
                     Console.Clear();
                     break;
                 } else {
-                    Console.WriteLine("\tPlease choose a program from the following...\n\n");
+                    Console.WriteLine("\t Please choose a program from the following...\n\n");
                     Thread.Sleep(500);
                     Console.Clear();
                 }
@@ -95,12 +247,14 @@ namespace Calculator_App {
             Thread.Sleep(100);
             Console.WriteLine("\t\t\t    MqcCheeze on GitHub 2021\n\n\n");
             Thread.Sleep(1000);
-            Console.WriteLine("\t\tPress enter to exit to menu...\n\n");
+            Console.WriteLine("\t\t Press enter to exit to menu...\n\n");
             Console.ReadLine();
             Console.Clear();
 
         }
         static public void Calculator() {
+
+            string input;
             double firstNum;
             double secondNum;
             double finalNum;
@@ -112,7 +266,7 @@ namespace Calculator_App {
                 Console.WriteLine(outputMsg + finalNum + "\n");
                 Console.WriteLine("-----------------------------------------------------\n");
                 Thread.Sleep(1000);
-                Console.WriteLine("\tPress enter to exit to menu...\n\n");
+                Console.WriteLine("\t Press enter to exit to menu...\n\n");
                 Console.ReadLine();
                 Console.Clear();
             }
@@ -125,14 +279,29 @@ namespace Calculator_App {
             Console.WriteLine("\t\t\t ▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒\n");
 
             Thread.Sleep(500);
-            Console.WriteLine("\t Enter first number:\n");
-            firstNum = Double.Parse(Console.ReadLine());
-            Console.WriteLine("\n");
+            while (true) {
+                Console.WriteLine("\n\t Enter first number:\n");
+                input = Console.ReadLine();
+                if (double.TryParse(input, out firstNum)) {
+                    break;
+                } else {
+                    Console.WriteLine("\t Please enter a number...\n");
+                    Thread.Sleep(500);
+                }
+            }
 
             Thread.Sleep(500);
-            Console.WriteLine("\t Enter a second number:\n");
-            secondNum = Double.Parse(Console.ReadLine());
-            Console.WriteLine("\n");
+            while (true) {
+                Console.WriteLine("\n\t Enter second number:\n");
+                input = Console.ReadLine();
+                if (double.TryParse(input, out secondNum)) {
+                    Console.WriteLine("");
+                    break;
+                } else {
+                    Console.WriteLine("\t Please enter a number...\n");
+                    Thread.Sleep(500);
+                }
+            }
 
             while (true) {
 
@@ -187,7 +356,7 @@ namespace Calculator_App {
                 Console.WriteLine(outputMsg + finalNum + secondUnit + "\n");
                 Console.WriteLine("-----------------------------------------------------\n");
                 Thread.Sleep(1000);
-                Console.WriteLine("\tPress enter to exit to menu...\n\n");
+                Console.WriteLine("\t Press enter to exit to menu...\n\n");
                 Console.ReadLine();
                 Console.Clear();
             }
@@ -810,7 +979,7 @@ namespace Calculator_App {
                 Console.WriteLine("\t\t\t ▒▒▒░░░▒▒▒░░░▒▒░░░▒▒▒░░░▒▒▒\n");
 
                 Thread.Sleep(500);
-                Console.WriteLine("\tWhat measurement would you like to convert: (length | cooking | exit)\n");
+                Console.WriteLine("\t What measurement would you like to convert: (length | cooking | exit)\n");
                 chosenMeasurement = Console.ReadLine();
                 Console.WriteLine("\n");
 
@@ -825,7 +994,7 @@ namespace Calculator_App {
                     Console.Clear();
                     break;
                 } else {
-                    Console.WriteLine("\tPlease choose a measurement from the following...\n\n");
+                    Console.WriteLine("\t Please choose a measurement from the following...\n\n");
                     Thread.Sleep(500);
                 }
             }
