@@ -166,11 +166,11 @@ namespace Calculator_App {
                 int cpuChoice;
                 string cpuChoiceStr;
                 
-                Console.WriteLine("\n\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓");
-                Console.WriteLine("\t\t\t ▒▒▒                      ▒▒▒");
-                Console.WriteLine("\t\t\t ▓▓▓  Rock Paper Sissors  ▓▓▓");
-                Console.WriteLine("\t\t\t ▒▒▒                      ▒▒▒");
-                Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓");
+                Console.WriteLine("\n\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▒▓▓▓▒▒▒▒▓▓▓▒▒▒▓▓▓");
+                Console.WriteLine("\t\t\t ▒▒▒                       ▒▒▒");
+                Console.WriteLine("\t\t\t ▓▓▓  Rock Paper scissors  ▓▓▓");
+                Console.WriteLine("\t\t\t ▒▒▒                       ▒▒▒");
+                Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▒▓▓▓▒▒▒▒▓▓▓▒▒▒▓▓▓");
                 Console.WriteLine("\n");
                 Thread.Sleep(500);
 
@@ -185,19 +185,19 @@ namespace Calculator_App {
                     } else if (cpuChoice == 1) {
                         cpuChoiceStr = "paper";
                     } else {
-                        cpuChoiceStr = "sissors";
+                        cpuChoiceStr = "scissors";
                     }
                     
                     if (choice == cpuChoiceStr) {
                         Console.WriteLine("\t Go again!\n");
                         Thread.Sleep(200);
-                    } else if (choice == "rock" && cpuChoiceStr == "sissors" || choice == "sissors" && cpuChoiceStr == "paper" || choice == "paper" && cpuChoiceStr == "rock") {
+                    } else if (choice == "rock" && cpuChoiceStr == "scissors" || choice == "scissors" && cpuChoiceStr == "paper" || choice == "paper" && cpuChoiceStr == "rock") {
                         Console.WriteLine("\t You win!\n");
                         Thread.Sleep(200);
                         Console.WriteLine("\t Press Enter to go to menu...");
                         Console.ReadLine();
                         break;
-                    } else if (choice == "sissors" && cpuChoiceStr == "rock" || choice == "rock" && cpuChoiceStr == "paper" || choice == "paper" && cpuChoiceStr == "sissors") {
+                    } else if (choice == "scissors" && cpuChoiceStr == "rock" || choice == "rock" && cpuChoiceStr == "paper" || choice == "paper" && cpuChoiceStr == "scissors") {
                         Console.WriteLine("\t You lose!\n");
                         Thread.Sleep(200);
                         Console.WriteLine("\t Better luck next time...\n");
@@ -222,7 +222,7 @@ namespace Calculator_App {
                 Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒");
                 Console.WriteLine("\n");
                 Thread.Sleep(500);
-                Console.WriteLine("\t What program would you like to run: numguess - guess the number | rps - rock paper sissors | exit\n");
+                Console.WriteLine("\t What program would you like to run: numguess - guess the number | rps - rock paper scissors | exit\n");
                 funChosen = Console.ReadLine();
                 Console.WriteLine("\n");
 
