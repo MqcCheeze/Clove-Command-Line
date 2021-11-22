@@ -15,7 +15,7 @@ namespace Calculator_App {
                 Console.WriteLine("\t\t\t ▓▓▓  Welcome to Clove - A Multipurpose Program  ▓▓▓");
                 Console.WriteLine("\t\t\t ▒▒▒                                             ▒▒▒");
                 Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓");
-                Console.WriteLine("\t\t\t\t    \n");
+                Console.WriteLine("\n");
                 Thread.Sleep(1500);
                 Console.WriteLine("\t What menu would you like to access: fun | utilities | credits | exit\n");
                 menuChosen = Console.ReadLine();
@@ -159,6 +159,59 @@ namespace Calculator_App {
                 
             }
 
+            void RockPaperSissors() {
+
+                string choice;
+                Random cpuChoiceRdm = new Random();
+                int cpuChoice;
+                string cpuChoiceStr;
+                
+                Console.WriteLine("\n\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓");
+                Console.WriteLine("\t\t\t ▒▒▒                      ▒▒▒");
+                Console.WriteLine("\t\t\t ▓▓▓  Rock Paper Sissors  ▓▓▓");
+                Console.WriteLine("\t\t\t ▒▒▒                      ▒▒▒");
+                Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓");
+                Console.WriteLine("\n");
+                Thread.Sleep(500);
+
+
+                Console.WriteLine("\t Choose an option: rock | paper | sissors\n");
+                while (true) {
+                    choice = Console.ReadLine();
+
+                    cpuChoice = cpuChoiceRdm.Next(0, 2);
+                    if (cpuChoice == 0) {
+                        cpuChoiceStr = "rock";
+                    } else if (cpuChoice == 1) {
+                        cpuChoiceStr = "paper";
+                    } else {
+                        cpuChoiceStr = "sissors";
+                    }
+                    
+                    if (choice == cpuChoiceStr) {
+                        Console.WriteLine("\t Go again!\n");
+                        Thread.Sleep(200);
+                    } else if (choice == "rock" && cpuChoiceStr == "sissors" || choice == "sissors" && cpuChoiceStr == "paper" || choice == "paper" && cpuChoiceStr == "rock") {
+                        Console.WriteLine("\t You win!\n");
+                        Thread.Sleep(200);
+                        Console.WriteLine("\t Press Enter to go to menu...");
+                        Console.ReadLine();
+                        break;
+                    } else if (choice == "sissors" && cpuChoiceStr == "rock" || choice == "rock" && cpuChoiceStr == "paper" || choice == "paper" && cpuChoiceStr == "sissors") {
+                        Console.WriteLine("\t You lose!\n");
+                        Thread.Sleep(200);
+                        Console.WriteLine("\t Better luck next time...\n");
+                        Thread.Sleep(200);
+                        Console.WriteLine("\t Press Enter to go to menu...\n");
+                        Console.ReadLine();
+                        break;
+                    } else {
+                        Console.WriteLine("\t Choose a valid option...\n");
+                        Thread.Sleep(200);
+                    }
+                }
+            }
+
             while (true) {
 
                 Console.Clear();
@@ -167,20 +220,20 @@ namespace Calculator_App {
                 Console.WriteLine("\t\t\t ▓▓▓  Fun Menu  ▒▒▒");
                 Console.WriteLine("\t\t\t ▒▒▒            ▓▓▓");
                 Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒");
-                Console.WriteLine("\t\t\t\t    \n");
+                Console.WriteLine("\n");
                 Thread.Sleep(500);
-                Console.WriteLine("\t What program would you like to run: number guess | exit\n");
+                Console.WriteLine("\t What program would you like to run: numguess - guess the number | rps - rock paper sissors | exit\n");
                 funChosen = Console.ReadLine();
                 Console.WriteLine("\n");
 
-                if (funChosen.ToLower() == "number guess") {
+                if (funChosen.ToLower() == "numguess") {
                     Thread.Sleep(500);
                     Console.Clear();
                     NumberGuess();
-                } else if (funChosen.ToLower() == "NEEDS ASSIGNING") {
+                } else if (funChosen.ToLower() == "rps") {
                     Thread.Sleep(500);
                     Console.Clear();
-                    Converter();
+                    RockPaperSissors();
                 } else if (funChosen.ToLower() == "exit") {
                     Thread.Sleep(200);
                     Console.Clear();
@@ -203,7 +256,7 @@ namespace Calculator_App {
                 Console.WriteLine("\t\t\t ▓▓▓  Utilities Menu  ▒▒▒");
                 Console.WriteLine("\t\t\t ▒▒▒                  ▓▓▓");
                 Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒");
-                Console.WriteLine("\t\t\t\t    \n");
+                Console.WriteLine("\n");
                 Thread.Sleep(1500);
                 Console.WriteLine("\t What program would you like to run: calculator | converter | exit\n");
                 utilityChosen = Console.ReadLine();
