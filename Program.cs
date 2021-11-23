@@ -6,7 +6,7 @@ namespace Clove__Command_Line_ {
     class Program {
 
         //main menu
-        static void Main(string[] args) {
+        static void Main() {
             while (true) {
 
                 //variables for main menu
