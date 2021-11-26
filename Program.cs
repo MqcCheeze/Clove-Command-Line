@@ -71,6 +71,9 @@ namespace Clove__Command_Line_ {
             //creating instance of RockPaperScissors game
             RockPaperScissors rpsGame = new RockPaperScissors();
 
+            //creating instance of NaughtsCrosses game
+            NaughtsCrosses ncGame = new NaughtsCrosses();
+
             while (true) {
 
                 //fun menu
@@ -90,7 +93,10 @@ namespace Clove__Command_Line_ {
                 Console.ForegroundColor = ConsoleColor.White;
 
                 //asking for what game user wants
-                Console.WriteLine("\t What game would you like to play: numguess - guess the number | rps - rock paper scissors | exit\n");
+                Console.WriteLine("\t What game would you like to play: numguess - guess the number");
+                Console.WriteLine("\t\t\t\t\t   nc - naughts & crosses");
+                Console.WriteLine("\t\t\t\t\t   rps - rock paper scissors");
+                Console.WriteLine("\t\t\t\t\t   exit\n");
                 funChosen = Console.ReadLine();
                 Console.WriteLine("\n");
                 
@@ -99,10 +105,14 @@ namespace Clove__Command_Line_ {
                     Thread.Sleep(500);
                     Console.Clear();
                     numGame.NumberGuessGame();
+                } else if (funChosen.ToLower() == "nc") {
+                    Thread.Sleep(500);
+                    Console.Clear();
+                    ncGame.NaughtsCrossesGame();
                 } else if (funChosen.ToLower() == "rps") {
                     Thread.Sleep(500);
                     Console.Clear();
-                    rpsGame.RockPaperScissorsGame();
+                     rpsGame.RockPaperScissorsGame();
                 } else if (funChosen.ToLower() == "exit") {
                     Thread.Sleep(200);
                     Console.Clear();

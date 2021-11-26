@@ -90,7 +90,7 @@ namespace Clove__Command_Line_ {
                 }
                 //game
 
-                correctNumber = number.Next(1, 10);
+                correctNumber = number.Next(1, 11);
                 Console.WriteLine("\t Guess a number between 1 - 10:\n");
 
                 //user can guess for a number of times according to difficulty chosen before
