@@ -72,7 +72,7 @@ namespace Clove__Command_Line_ {
             RockPaperScissors rpsGame = new RockPaperScissors();
 
             //creating instance of NaughtsCrosses game
-            NaughtsCrosses ncGame = new NaughtsCrosses();
+            NoughtsCrosses ncGame = new NoughtsCrosses();
 
             while (true) {
 
@@ -108,7 +108,7 @@ namespace Clove__Command_Line_ {
                 } else if (funChosen.ToLower() == "nc") {
                     Thread.Sleep(500);
                     Console.Clear();
-                    ncGame.NaughtsCrossesGame();
+                    ncGame.NoughtsCrossesGame();
                 } else if (funChosen.ToLower() == "rps") {
                     Thread.Sleep(500);
                     Console.Clear();

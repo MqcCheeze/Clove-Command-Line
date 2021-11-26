@@ -4,8 +4,8 @@ using System.Text;
 using System.Threading;
 
 namespace Clove__Command_Line_ {
-    public class NaughtsCrosses {
-        public void NaughtsCrossesGame() {
+    public class NoughtsCrosses {
+        public void NoughtsCrossesGame() {
 
             //variables
             string inputGo;
@@ -155,7 +155,7 @@ namespace Clove__Command_Line_ {
             //gui
             Console.WriteLine("\n\t\t\t ▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒");
             Console.WriteLine("\t\t\t ░░░                     ░░░");
-            Console.WriteLine("\t\t\t ▒▒▒  Naughts & Crosses  ▒▒▒");
+            Console.WriteLine("\t\t\t ▒▒▒  Noughts & Crosses  ▒▒▒");
             Console.WriteLine("\t\t\t ░░░                     ░░░");
             Console.WriteLine("\t\t\t ▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒░░░▒▒▒");
             Console.WriteLine("\t\t\t\t    \n");
