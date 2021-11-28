@@ -52,7 +52,11 @@ namespace Clove__Command_Line_ {
                 //second number
                 Console.WriteLine("\n\t Enter second number:\n");
                 input = Console.ReadLine();
-                if (double.TryParse(input, out secondNum)) {
+
+                if (input == "0") {
+                    Console.WriteLine("\t Please enter a number that is not 0...\n");
+                    Thread.Sleep(500);
+                } else if (double.TryParse(input, out secondNum)) {
                     Console.WriteLine("");
                     break;
                 } else {
