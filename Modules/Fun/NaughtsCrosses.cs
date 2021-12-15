@@ -17,8 +17,8 @@ namespace Clove__Command_Line_ {
             string roundLength;
             Random firstGo = new Random();
             int first;
-            string youLost = "\n\t The computer won the round!";
-            string youWon = "\n\t You won the round!";
+            string youLost = "\n\n\t The computer won the round!";
+            string youWon = "\n\n\t You won the round!";
             string next = "\n\t Press Enter to go to the next round...";
             bool win = false;
 
