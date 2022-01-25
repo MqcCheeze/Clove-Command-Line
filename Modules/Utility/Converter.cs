@@ -673,13 +673,13 @@ namespace Clove__Command_Line_ {
                 Console.WriteLine("\n");
 
                 //module selection if statements
-                if (chosenMeasurement.ToLower() == "length") {
+                if (chosenMeasurement.ToLower() == "length" || chosenMeasurement.ToLower() == "l") {
                     Thread.Sleep(500);
                     length();
-                } else if (chosenMeasurement.ToLower() == "cooking") {
+                } else if (chosenMeasurement.ToLower() == "cooking" || chosenMeasurement.ToLower() == "c") {
                     Thread.Sleep(500);
                     cooking();
-                } else if (chosenMeasurement.ToLower() == "exit") {
+                } else if (chosenMeasurement.ToLower() == "exit" || chosenMeasurement.ToLower() == "e") {
                     Thread.Sleep(200);
                     Console.Clear();
                     break;
