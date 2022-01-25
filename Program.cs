@@ -11,15 +11,20 @@ namespace Clove__Command_Line_ {
 
                 //variables for main menu
                 string menuChosen;
-
+                   
+                //menu easter egg
+                int colour = rnd.Next(0,100);
+                if(colour = 1) {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                } else {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+                
                 //main menu
-                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("\n\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓");
                 Console.WriteLine("\t\t\t ▒▒▒                                             ▒▒▒");
                 Console.Write("\t\t\t ▓▓▓  ");
-                Console.ForegroundColor = ConsoleColor.Gray;
                 Console.Write("Welcome to Clove - A Multipurpose Program  ");
-                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("▓▓▓");
                 Console.WriteLine("\t\t\t ▒▒▒                                             ▒▒▒");
                 Console.WriteLine("\t\t\t ▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓▒▒▒▓▓▓");
@@ -33,19 +38,19 @@ namespace Clove__Command_Line_ {
                 Console.WriteLine("\n");
 
                 //menu selection
-                if (menuChosen.ToLower() == "fun") {
+                if (menuChosen.ToLower() == "fun" || menuChosen.ToLower() == "f") {
                     Thread.Sleep(500);
                     Console.Clear();
                     FunMenu();
-                } else if (menuChosen.ToLower() == "utilities") {
+                } else if (menuChosen.ToLower() == "utilities" || menuChosen.ToLower() == "u") {
                     Thread.Sleep(500);
                     Console.Clear();
                     UtilityMenu();
-                } else if (menuChosen.ToLower() == "credits") {
+                } else if (menuChosen.ToLower() == "credits" || menuChosen.ToLower() == "c") {
                     Thread.Sleep(500);
                     Console.Clear();
                     Credits();
-                } else if (menuChosen.ToLower() == "exit") {
+                } else if (menuChosen.ToLower() == "exit" || menuChosen.ToLower() == "e") {
                     Thread.Sleep(200);
                     Console.Clear();
                     Thread.Sleep(500);
