@@ -47,12 +47,15 @@ namespace Clove__Command_Line_ {
                 chosenDifficulty = Console.ReadLine();
                 switch (chosenDifficulty) {
                     case "easy":
+                    case "e":
                         difficulty = 4;
                         break;
                     case "normal":
+                    case "n":
                         difficulty = 2;
                         break;
                     case "hard":
+                    case "h":
                         difficulty = 0;
                         break;
                     default:
